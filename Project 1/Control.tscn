@@ -9,8 +9,8 @@
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=7]
 [ext_resource path="res://Background/Bush.png" type="Texture" id=8]
 [ext_resource path="res://Background/Rock.png" type="Texture" id=9]
-[ext_resource path="res://sprites/Button sprites/button.png" type="Texture" id=10]
-[ext_resource path="res://sprites/Button sprites/button pressed.png" type="Texture" id=11]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://monster_!.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -154,58 +154,58 @@ region = Rect2( 0, 0, 64, 64 )
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [ SubResource( 14 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "Walk_Backward",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -318,31 +318,16 @@ position = Vector2( -741.048, -285.671 )
 texture = ExtResource( 9 )
 centered = false
 
-[node name="GUI" type="CanvasLayer" parent="."]
+[node name="monster_!" parent="." instance=ExtResource( 12 )]
+position = Vector2( -538.952, 523.577 )
 
-[node name="Control3" type="Control" parent="GUI"]
-margin_right = 1019.0
-margin_bottom = 596.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="monster_!2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 40.8757, 277.504 )
 
-[node name="Jump" type="TouchScreenButton" parent="GUI/Control3"]
-position = Vector2( 701.45, 453.962 )
-scale = Vector2( 0.392099, 0.391978 )
-normal = ExtResource( 10 )
-pressed = ExtResource( 11 )
+[node name="monster_!3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 353.417, 534.891 )
 
-[node name="Left" type="TouchScreenButton" parent="GUI/Control3"]
-position = Vector2( 16.9707, 581.242 )
-rotation = -1.5708
-scale = Vector2( 0.392, 0.423551 )
-normal = ExtResource( 10 )
-pressed = ExtResource( 11 )
+[node name="monster_!4" parent="." instance=ExtResource( 12 )]
+position = Vector2( -554.508, 698.94 )
 
-[node name="Right" type="TouchScreenButton" parent="GUI/Control3"]
-position = Vector2( 316.784, 451.134 )
-rotation = 1.5708
-scale = Vector2( 0.392, 0.437062 )
-normal = ExtResource( 10 )
-pressed = ExtResource( 11 )
+[node name="GUI" parent="." instance=ExtResource( 10 )]
