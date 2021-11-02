@@ -29,12 +29,12 @@ func _physics_process(delta):
 		$monster_1.flip_h = false
 	
 	if ($monster_1_atas.is_colliding() or $monster_1_bawah.is_colliding()):
-		arah = arah*-1
+		gerakan.y *= -1
 	if ($monster_1_kanan.is_colliding()):
-		arah = arah*-1
+		gerakan.x *= -1
 		$monster_1.flip_h = true
 	if ($monster_1_kiri.is_colliding()):
-		arah = arah*-1
+		gerakan.x *= -1
 		$monster_1.flip_h = false
 	move_and_slide(gerakan)
 		

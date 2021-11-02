@@ -39,6 +39,7 @@ scale = Vector2( 0.392099, 0.391978 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 5 )
 action = "Lompat"
+visibility_mode = 1
 
 [node name="Left" type="TouchScreenButton" parent="Control3"]
 position = Vector2( 16.9707, 581.242 )
@@ -47,6 +48,7 @@ scale = Vector2( 0.392, 0.423551 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 5 )
 action = "Mundur"
+visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="Control3"]
 position = Vector2( 316.784, 451.134 )
@@ -55,6 +57,7 @@ scale = Vector2( 0.392, 0.437062 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 5 )
 action = "Maju"
+visibility_mode = 1
 
 [node name="Health_1" type="AnimatedSprite" parent="Control3"]
 position = Vector2( 991.5, 29 )

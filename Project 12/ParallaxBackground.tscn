@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Background/messageImage_1633497825901_-_Copy_1920x1080.jpg" type="Texture" id=1]
+[ext_resource path="res://Background/Road.png" type="Texture" id=2]
+[ext_resource path="res://Background/Bush.png" type="Texture" id=3]
+[ext_resource path="res://Background/Rock.png" type="Texture" id=4]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Mountain.png-ad72697e88fcc63f228810b492eeb6c4.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/Tree.png-32a019adf605dda43b0c296de247e1d2.stex"
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+scroll_base_scale = Vector2( 0.4, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxLayer"]
+position = Vector2( -749.533, -422.936 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Mountain" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( -753.533, -306.063 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1, 0.9 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Tree" type="Sprite" parent="ParallaxLayer3"]
+position = Vector2( -744.705, -333.186 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.5, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Bush" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( -753.375, -305.727 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.5, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Road" type="Sprite" parent="ParallaxLayer5"]
+position = Vector2( -767.3, -428.068 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 1.5, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Rock" type="Sprite" parent="ParallaxLayer6"]
+position = Vector2( -795.102, -425.155 )
+texture = ExtResource( 4 )
+centered = false

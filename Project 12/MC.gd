@@ -54,14 +54,12 @@ func _physics_process(delta):
 		movement.y = jump
 		jump_count = jump_count + 1
 
-	if(is_on_ceiling()):
-		movement.y = 0
-		print("on_ceiling")
 	print(movement.x)
 	move_and_slide(movement,Vector2(0,-1))
 	
-	
 	var is_attacking = false
+	if (Input.is_action_just_pressed("Serang")):
+		is_attacking = true
 	
 	var animation = get_new_animation(is_attacking)
 	if animation != "idle" and attack_timer.is_stopped():
@@ -72,7 +70,7 @@ func _physics_process(delta):
 func get_new_animation(is_attacking = false):
 	var animation_new = ""
 	if is_on_floor():
-		if abs(movement.x) > 13:
+		if abs(movement.x) > 24:
 			animation_new = "Walk"
 		else:
 			animation_new = "Idle"

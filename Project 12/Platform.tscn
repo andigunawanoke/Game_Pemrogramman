@@ -64,7 +64,7 @@
 extents = Vector2( 118.081, 5.83252 )
 
 [node name="Platform" type="Node2D"]
-position = Vector2( -264.5, -295.5 )
+position = Vector2( 1.5, -3.5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
@@ -72,9 +72,9 @@ position = Vector2( -264.5, -295.5 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 48, 48 )
 format = 1
-tile_data = PoolIntArray( 393219, 5, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 3, 0 )
+tile_data = PoolIntArray( 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 264.419, 295.833 )
+position = Vector2( 22, 8 )
 shape = SubResource( 2 )
 one_way_collision = true

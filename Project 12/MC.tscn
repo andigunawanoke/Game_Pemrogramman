@@ -1,0 +1,124 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://sprites/Pixilart Sprite Sheet.png" type="Texture" id=1]
+[ext_resource path="res://sprites/mc2 .png" type="Texture" id=2]
+[ext_resource path="res://MC.gd" type="Script" id=3]
+[ext_resource path="res://Script/AnimatedSprite.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 13.3606
+height = 48.9665
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 128, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 512, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 640, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 768, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 896, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[node name="MC" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="AttackAnimation" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.648
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.370199, 6.73096 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -3075.87, -164.146 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 15 )
+animation = "Idle"
+offset = Vector2( 1540.07, 80.8161 )
+script = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite"]
+position = Vector2( 1536.9, 45.0659 )
+scale = Vector2( 0.5, 0.5 )
+current = true
+process_mode = 0
+limit_left = -55555
+limit_top = -55555
+limit_right = 50000
+smoothing_enabled = true
+smoothing_speed = 10.0
