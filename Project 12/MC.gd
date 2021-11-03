@@ -54,17 +54,17 @@ func _physics_process(delta):
 		movement.y = jump
 		jump_count = jump_count + 1
 
-	print(movement.x)
+	
 	move_and_slide(movement,Vector2(0,-1))
 	
 	var is_attacking = false
 	if (Input.is_action_just_pressed("Serang")):
 		is_attacking = true
-	
 	var animation = get_new_animation(is_attacking)
 	if animation != "idle" and attack_timer.is_stopped():
 		if is_attacking:
 			attack_timer.start()
+		print(animation)
 		$AnimatedSprite.play(animation)
 
 func get_new_animation(is_attacking = false):
@@ -75,5 +75,5 @@ func get_new_animation(is_attacking = false):
 		else:
 			animation_new = "Idle"
 	if is_attacking:
-		animation_new += "Attack"
+		animation_new = "Attack"
 	return animation_new
