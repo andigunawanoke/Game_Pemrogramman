@@ -5,6 +5,7 @@ extends CanvasLayer
 # var a = 2
 # var b = "text"
 
+
 func updateHealth(health):
 	if(health>=100):
 		$Control3/Health_1.set_frame(2)

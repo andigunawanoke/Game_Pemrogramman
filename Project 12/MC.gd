@@ -9,6 +9,16 @@ const jump = -500
 var shape_pos
 const max_jump = 2
 var timeToaddDestination : float
+export var lives = 100
+
+func _get_lives():
+	return lives
+
+func _set_lives(l):
+	lives = l
+	
+func _get_hit(damage):
+	_set_lives(_get_lives() - damage) 
 
 onready var animation_player = $AnimationPlayer
 onready var shoot_timer = $ShootAnimation
@@ -57,6 +67,7 @@ func _physics_process(delta):
 	
 	move_and_slide(movement,Vector2(0,-1))
 	
+		
 	var is_attacking = false
 	if (Input.is_action_just_pressed("Serang")):
 		is_attacking = true
@@ -64,7 +75,6 @@ func _physics_process(delta):
 	if animation != "idle" and attack_timer.is_stopped():
 		if is_attacking:
 			attack_timer.start()
-		print(animation)
 		$AnimatedSprite.play(animation)
 
 func get_new_animation(is_attacking = false):

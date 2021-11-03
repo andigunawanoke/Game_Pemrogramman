@@ -7,6 +7,9 @@ var _timer = null
 var current_number = 0
 var my_random_number = 1
 var current_flip = false
+var damage = 15
+
+signal player_hit
 
 func _ready():
 	_timer = Timer.new()
@@ -44,3 +47,9 @@ func _on_Timer_timeout():
 	my_random_number = rng.randf_range(-17, 17)
 	print(my_random_number)
 
+
+
+func _on_Area2D_body_entered(body):
+	if "MC" in body.name:
+		emit_signal("player_hit",damage)
+	 # Replace with function body.
