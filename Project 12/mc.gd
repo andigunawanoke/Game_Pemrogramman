@@ -9,7 +9,7 @@ const jump = -500
 var shape_pos
 const max_jump = 2
 var timeToaddDestination : float
-export var lives = 100
+export var lives = 200
 
 func _get_lives():
 	return lives
@@ -84,6 +84,12 @@ func get_new_animation(is_attacking = false):
 			animation_new = "Walk"
 		else:
 			animation_new = "Idle"
+	else:
+		if abs(movement.x) > 24:
+			animation_new = "Walk"
+		else:
+			animation_new = "Idle"
+			
 	if is_attacking:
 		animation_new = "Attack"
 	return animation_new

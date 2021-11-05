@@ -84,6 +84,12 @@ func get_new_animation(is_attacking = false):
 			animation_new = "Walk"
 		else:
 			animation_new = "Idle"
+	else:
+		if abs(movement.x) > 24:
+			animation_new = "Walk"
+		else:
+			animation_new = "Idle"
+			
 	if is_attacking:
 		animation_new = "Attack"
 	return animation_new
