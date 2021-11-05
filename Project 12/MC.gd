@@ -10,6 +10,7 @@ var shape_pos
 const max_jump = 2
 var timeToaddDestination : float
 export var lives = 200
+var damage = 25
 
 func _get_lives():
 	return lives
@@ -27,6 +28,8 @@ onready var attack_timer = $AttackAnimation
 onready var attack_box = $attackboxtimer
 
 
+signal monsterhit
+signal monsterhit2
 
 func _ready():
 	shape_pos = $CollisionShape2D.position.x
@@ -49,11 +52,13 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("Maju")):
 		movement.x += axel
 		movement.x = min(movement.x,max_speed)
+		$Area2D/attackbox.position.x = -2.5
 		$CollisionShape2D.position.x = shape_pos
 		get_node("AnimatedSprite").set_flip_h(false)
 	elif (Input.is_action_pressed("Mundur")):
 		movement.x -= axel
 		movement.x = max(movement.x,-max_speed)
+		$Area2D/attackbox.position.x = -137
 		$CollisionShape2D.position.x = -shape_pos
 		get_node("AnimatedSprite").set_flip_h(true)
 
@@ -105,4 +110,7 @@ func get_new_animation(is_attacking = false):
 
 func _on_Area2D_body_entered(body):
 	if "monster" in body.name:
-		print("hit") # Replace with function body.
+		emit_signal("monsterhit",damage) # Replace with function body.
+	elif "2" in body.name:
+		print ("hit")
+		emit_signal("monsterhit2",damage)

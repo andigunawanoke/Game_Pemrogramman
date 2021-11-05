@@ -65,7 +65,7 @@ script = ExtResource( 1 )
 [node name="monster_1" type="AnimatedSprite" parent="."]
 position = Vector2( 0.707031, -0.707169 )
 frames = SubResource( 9 )
-frame = 4
+frame = 3
 speed_scale = 2.542
 playing = true
 
