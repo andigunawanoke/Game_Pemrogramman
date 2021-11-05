@@ -10,15 +10,6 @@ var current_flip = false
 var damage = 20
 var lives = 100
 
-func _get_lives():
-	return lives
-
-func _set_lives(l):
-	lives = l
-	
-func _get_hit(damage):
-	_set_lives(_get_lives() - damage) 
-
 signal player_hit
 
 func _ready():
