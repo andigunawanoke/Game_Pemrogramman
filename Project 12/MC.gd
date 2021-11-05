@@ -24,6 +24,7 @@ onready var animation_player = $AnimationPlayer
 onready var shoot_timer = $ShootAnimation
 onready var sprite = $Sprite
 onready var attack_timer = $AttackAnimation
+onready var attack_box = $attackboxtimer
 
 
 
@@ -36,6 +37,10 @@ func _ready():
 #		$AnimatedSprite.play("Attack")
 		
 func _physics_process(delta):
+	
+	if(attack_box.is_stopped()):
+		$Area2D/attackbox.disabled = true
+	
 	if(not is_on_floor()):
 		movement.y += gravity
 	else:
@@ -67,10 +72,13 @@ func _physics_process(delta):
 	
 	move_and_slide(movement,Vector2(0,-1))
 	
-		
+	
+	
 	var is_attacking = false
 	if (Input.is_action_just_pressed("Serang")):
 		is_attacking = true
+		$Area2D/attackbox.disabled = false
+		attack_box.start()
 	var animation = get_new_animation(is_attacking)
 	if animation != "idle" and attack_timer.is_stopped():
 		if is_attacking:
@@ -93,3 +101,8 @@ func get_new_animation(is_attacking = false):
 	if is_attacking:
 		animation_new = "Attack"
 	return animation_new
+
+
+func _on_Area2D_body_entered(body):
+	if "monster" in body.name:
+		print("hit") # Replace with function body.

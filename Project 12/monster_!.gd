@@ -8,6 +8,7 @@ var current_number = 0
 var my_random_number = 1
 var current_flip = false
 var damage = 20
+var lives = 100
 
 signal player_hit
 

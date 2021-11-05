@@ -219,7 +219,9 @@ position = Vector2( 82.8157, 2080.68 )
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 
-[node name="KumpMusuh" type="Node2D" parent="."]
+[node name="KumpMusuh" type="Node2D" parent="." groups=[
+"Monster",
+]]
 
 [node name="monster_!" parent="KumpMusuh" instance=ExtResource( 9 )]
 position = Vector2( 219.878, 2129.45 )
