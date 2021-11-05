@@ -13,7 +13,7 @@ var _state = State.WALKING
 const FLOOR_NORMAL = Vector2.UP
 var _velocity = Vector2.ZERO
 var speed = Vector2(100,0)
-var damage = 10
+var damage = 20
 
 signal player_hit
 

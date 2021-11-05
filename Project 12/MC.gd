@@ -9,7 +9,7 @@ const jump = -500
 var shape_pos
 const max_jump = 2
 var timeToaddDestination : float
-export var lives = 100
+export var lives = 200
 
 func _get_lives():
 	return lives

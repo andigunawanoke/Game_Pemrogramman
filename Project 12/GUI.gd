@@ -1,39 +1,37 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+onready var health_label = $Control3/Label
+	
 func updateHealth(health):
-	if(health>=100):
+	health_label.set_text(str(health)+"/200")
+	if(health>=200):
 		$Control3/Health_1.set_frame(2)
 		$Control3/Health_2.set_frame(2)
 		$Control3/Health_3.set_frame(2)
-	elif(health>83.334):
+		$Control3/Health_4.set_frame(2)
+		$Control3/Health_5.set_frame(2)
+	elif(health>=180):
 		$Control3/Health_1.set_frame(1)
-		$Control3/Health_2.set_frame(2)
-		$Control3/Health_3.set_frame(2)
-	elif(health>66.668):
+	elif(health>=160):
 		$Control3/Health_1.set_frame(0)
-		$Control3/Health_2.set_frame(2)
-		$Control3/Health_3.set_frame(2)
-	elif(health>50.002):
+	elif(health>=140):
 		$Control3/Health_2.set_frame(1)
-		$Control3/Health_3.set_frame(2)
-	elif(health>33.336):
+	elif(health>=120):
 		$Control3/Health_2.set_frame(0)
-		$Control3/Health_3.set_frame(2)
-	elif(health>16.67):
+	elif(health>=100):
 		$Control3/Health_3.set_frame(1)
-	else:
+	elif(health>=80):
 		$Control3/Health_3.set_frame(0)
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+	elif(health>=60):
+		$Control3/Health_4.set_frame(1)	
+	elif(health>=40):
+		$Control3/Health_4.set_frame(0)
+	elif(health>=20):
+		$Control3/Health_5.set_frame(1)
+	else:
+		$Control3/Health_5.set_frame(0)
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+

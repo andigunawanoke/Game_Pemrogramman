@@ -7,7 +7,7 @@ var _timer = null
 var current_number = 0
 var my_random_number = 1
 var current_flip = false
-var damage = 15
+var damage = 20
 
 signal player_hit
 
@@ -45,7 +45,6 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	rng.randomize()
 	my_random_number = rng.randf_range(-17, 17)
-	print(my_random_number)
 
 
 
