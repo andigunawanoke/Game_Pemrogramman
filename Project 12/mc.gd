@@ -111,6 +111,5 @@ func get_new_animation(is_attacking = false):
 func _on_Area2D_body_entered(body):
 	if "monster" in body.name:
 		emit_signal("monsterhit",damage) # Replace with function body.
-	elif "2" in body.name:
-		print ("hit")
+	elif "Slime" in body.name:
 		emit_signal("monsterhit2",damage)

@@ -24,11 +24,9 @@ func _ready():
 
 func _on_monster_hit(damage):
 	$"KumpMusuh/monster_!"._get_hit(damage)
-	print($"KumpMusuh/monster_!"._get_lives())
 
 func _on_monster_hit2(damage):
 	$"KumpMusuh/Slime"._get_hit(damage)
-	print($"KumpMusuh/Slime"._get_lives())
 	
 func _on_player_hit(damage):
 	$MC._get_hit(damage)
