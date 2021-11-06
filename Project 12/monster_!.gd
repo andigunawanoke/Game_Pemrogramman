@@ -1,18 +1,41 @@
 extends KinematicBody2D
 
-var speed = 100
+export var speed = 100
+export var min_range = -17
+export var max_range = 17
 var arah = -1
 var rng = RandomNumberGenerator.new()
 var _timer = null
 var current_number = 0
-var my_random_number = 1
+export var my_random_number = 1
 var current_flip = false
 var damage = 20
 var lives = 100
+onready var deathtimer = $Deathtimer
+onready var healthshowingtimer = $HealthShowingTimer
+
+func _get_lives():
+	return lives
+
+func _set_lives(l):
+	healthshowingtimer.start()
+	
+	lives = l
+	$Enemy_health_bar/TextureProgress.value = lives
+	if(lives <= 0):
+		$monster_1.play("death")
+		deathtimer.start()
+		
+	
+func _get_hit(damage):
+	_set_lives(_get_lives() - damage) 
 
 signal player_hit
 
 func _ready():
+	$Enemy_health_bar.hide()
+	$Enemy_health_bar/TextureProgress.value = lives
+	$monster_1.play("idle")
 	_timer = Timer.new()
 	add_child(_timer)
 	_timer.connect("timeout", self, "_on_Timer_timeout")
@@ -21,6 +44,24 @@ func _ready():
 	_timer.start()
 	
 func _physics_process(delta):
+	if(healthshowingtimer.is_stopped()):
+		$Enemy_health_bar.hide()
+	else:
+		$Enemy_health_bar.show()
+	if(lives <= 0):
+		speed = 0
+		min_range = 0
+		max_range = 0
+		arah = 0
+		my_random_number = 0
+		$Area2D/CollisionShape2D.disabled = true
+		$CollisionShape2D.disabled = true
+		$monster_1_atas.enabled = false
+		$monster_1_bawah.enabled = false
+		$monster_1_kiri.enabled = false
+		$monster_1_kanan.enabled = false
+		if(deathtimer.is_stopped()):
+			queue_free()
 	var gerakan = Vector2(arah * speed, 0)
 	gerakan.y = my_random_number*7
 	if(my_random_number > 0):
@@ -45,7 +86,8 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	rng.randomize()
-	my_random_number = rng.randf_range(-17, 17)
+	my_random_number = rng.randf_range(min_range, max_range)
+	
 
 
 

@@ -11,6 +11,7 @@ func _ready():
 func open():
 	show()
 	resume_button.grab_focus()
+	
 
 func close():
 	get_tree().paused = false

@@ -14,13 +14,22 @@ const FLOOR_NORMAL = Vector2.UP
 var _velocity = Vector2.ZERO
 var speed = Vector2(100,0)
 var damage = 20
+var lives = 100
+
+func _get_lives():
+	return lives
+
+func _set_lives(l):
+	lives = l
+	
+func _get_hit(damage):
+	_set_lives(_get_lives() - damage) 
 
 signal player_hit
 
-onready var platform_detector = $PlatformDetector
-onready var floor_detector_left = $FloorDetectorLeft
-onready var floor_detector_right = $FloorDetectorRight
-onready var sprite = $Sprite
+onready var floor_detector_left = $floor_detector_left
+onready var floor_detector_right = $floor_detector_right
+onready var sprite = $monster_2
 
 
 func _ready():
