@@ -2,7 +2,7 @@ extends Node
 
 # don't forget to use stretch mode 'viewport' and aspect 'ignore'
 onready var viewport = get_viewport()
-onready var _pause_menu = $GUI/PauseMenu
+onready var _pause_menu = $PauseMenu
 
 func _init():
 	OS.min_window_size = OS.window_size
@@ -18,7 +18,7 @@ func _ready():
 	
 	$MC.connect("monsterhit",self,"_on_monster_hit")
 	$MC.connect("monsterhit2",self,"_on_monster_hit2")
-	pass
+
 	
 	
 
@@ -41,3 +41,5 @@ func _unhandled_input(event):
 		else:
 			_pause_menu.close()
 		get_tree().set_input_as_handled()
+
+

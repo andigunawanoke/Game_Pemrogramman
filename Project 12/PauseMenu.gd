@@ -16,5 +16,7 @@ func open():
 func close():
 	get_tree().paused = false
 	
+	
 func _on_ResumeButton_pressed():
 	close()
+	$PauseMenu.visible = false
