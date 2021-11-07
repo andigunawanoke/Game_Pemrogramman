@@ -87,6 +87,14 @@ func _physics_process(delta):
 		if not is_on_floor():
 			$"Area2D/flying attack box".disabled = false
 		attack_box.start()
+	elif (Input.is_action_just_pressed("Serang2")):
+		is_attacking = true
+		$Area2D/attackbox.disabled = false
+		if is_on_floor():
+			movement.y = jump
+		if not is_on_floor():
+			$"Area2D/flying attack box".disabled = false
+		attack_box.start()
 	var animation = get_new_animation(is_attacking)
 	if animation != "idle" and attack_timer.is_stopped():
 		if is_attacking:

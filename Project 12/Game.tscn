@@ -243,21 +243,20 @@ __meta__ = {
 }
 
 [node name="MC" parent="." instance=ExtResource( 4 )]
-position = Vector2( 82.8157, 2080.68 )
+position = Vector2( 2706.35, 1474.88 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 
-[node name="KumpMusuh" type="Node2D" parent="." groups=[
-"Monster",
-]]
+[node name="KumpMusuh" type="Node2D" parent="." groups=["Monster"]]
 
 [node name="monster_!" parent="KumpMusuh" instance=ExtResource( 9 )]
 position = Vector2( 2575.73, 1482.13 )
 speed = 0
 min_range = 0
 max_range = 0
+arah = 1
 my_random_number = 0
 
 [node name="Slime" parent="KumpMusuh" instance=ExtResource( 8 )]

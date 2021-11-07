@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed = 100
 export var min_range = -17
 export var max_range = 17
-var arah = -1
+export var arah = -1
 var rng = RandomNumberGenerator.new()
 var _timer = null
 var current_number = 0

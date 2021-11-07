@@ -45,48 +45,48 @@ flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 640, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 192, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 256, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": false,
 "name": "death",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=15]
 radius = 13.7161
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 23.5, 15.3296 )
 
 [node name="monster_!" type="KinematicBody2D"]
@@ -96,14 +96,15 @@ script = ExtResource( 1 )
 
 [node name="monster_1" type="AnimatedSprite" parent="."]
 position = Vector2( 0.707031, -0.707169 )
-frames = SubResource( 9 )
+frames = SubResource( 14 )
 animation = "idle"
+frame = 5
 speed_scale = 2.542
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.353622, -0.353561 )
-shape = SubResource( 10 )
+shape = SubResource( 15 )
 
 [node name="monster_1_bawah" type="RayCast2D" parent="."]
 enabled = true
@@ -135,7 +136,7 @@ position = Vector2( 0.5, -0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.250847, -2.71399 )
-shape = SubResource( 11 )
+shape = SubResource( 16 )
 
 [node name="Enemy_health_bar" parent="." instance=ExtResource( 3 )]
 margin_left = -23.758
