@@ -32,14 +32,6 @@ func _on_player_hit(damage):
 	$MC._get_hit(damage)
 	$GUI.updateHealth($MC._get_lives())
 
-func _unhandled_input(event):
-	if event.is_action_pressed("toggle_pause"):
-		var tree = get_tree()
-		tree.paused = not tree.paused
-		if tree.paused:
-			_pause_menu.open()
-		else:
-			_pause_menu.close()
-		get_tree().set_input_as_handled()
+
 
 

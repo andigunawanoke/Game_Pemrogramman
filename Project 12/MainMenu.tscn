@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MainMenuPopUp.gd" type="Script" id=1]
+[ext_resource path="res://sprites/mc2 .png" type="Texture" id=2]
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://blinking_start.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -405.707, -125.994 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuPopUp" type="Popup" parent="."]
+pause_mode = 2
+visible = true
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( -208, 0 )
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainMenuPopUp"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_Game" type="ColorRect" parent="MainMenuPopUp"]
+margin_left = 1060.52
+margin_top = 376.682
+margin_right = 1180.52
+margin_bottom = 420.682
+color = Color( 0.431373, 0.431373, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuPopUp/Start_Game"]
+anchor_left = -0.192
+anchor_top = -0.451
+anchor_right = -0.192
+anchor_bottom = -0.451
+margin_left = 48.2341
+margin_top = 34.7757
+margin_right = 119.234
+margin_bottom = 48.7757
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_Scene" type="Timer" parent="MainMenuPopUp"]
+wait_time = 1.758
+one_shot = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 206.944, 436.074 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 2 )
+
+[node name="Slime" parent="." instance=ExtResource( 3 )]
+position = Vector2( -60.4993, 165.969 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 252.054
+margin_top = 62.7835
+margin_right = 358.054
+margin_bottom = 81.7835
+rect_scale = Vector2( 5, 5 )
+text = "Generic game 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="blinking_start" type="Label" parent="."]
+margin_left = 489.953
+margin_top = 341.302
+margin_right = 693.953
+margin_bottom = 355.302
+rect_scale = Vector2( 2, 2 )
+text = "Press \"ENTER\" to start the game"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blinking" type="Timer" parent="blinking_start"]
+one_shot = true
+
+[node name="Blinking2" type="Timer" parent="blinking_start"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Change_Scene" type="Timer" parent="blinking_start"]
+wait_time = 1.064
+one_shot = true
