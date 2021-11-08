@@ -29,7 +29,6 @@ onready var attack_box = $attackboxtimer
 
 
 signal monsterhit
-signal monsterhit2
 
 func _ready():
 	shape_pos = $CollisionShape2D.position.x
@@ -122,7 +121,12 @@ func get_new_animation(is_attacking = false):
 
 
 func _on_Area2D_body_entered(body):
-	if "monster" in body.name:
-		emit_signal("monsterhit",damage) # Replace with function body.
-	elif "Slime" in body.name:
-		emit_signal("monsterhit2",damage)
+	
+	if "TileMap" in body.name:
+		print("kena tile map")
+		pass
+	elif "MC" in body.name:
+		print("kena mc")
+		pass
+	else:		
+		emit_signal("monsterhit",damage,body.get_name())

@@ -29,7 +29,6 @@ onready var attack_box = $attackboxtimer
 
 
 signal monsterhit
-signal monsterhit2
 
 func _ready():
 	shape_pos = $CollisionShape2D.position.x
@@ -43,6 +42,7 @@ func _physics_process(delta):
 	
 	if(attack_box.is_stopped()):
 		$Area2D/attackbox.disabled = true
+		$"Area2D/flying attack box".disabled = true
 	
 	if(not is_on_floor()):
 		movement.y += gravity
@@ -83,6 +83,16 @@ func _physics_process(delta):
 	if (Input.is_action_just_pressed("Serang")):
 		is_attacking = true
 		$Area2D/attackbox.disabled = false
+		if not is_on_floor():
+			$"Area2D/flying attack box".disabled = false
+		attack_box.start()
+	elif (Input.is_action_just_pressed("Serang2")):
+		is_attacking = true
+		$Area2D/attackbox.disabled = false
+		if is_on_floor():
+			movement.y = jump
+		if not is_on_floor():
+			$"Area2D/flying attack box".disabled = false
 		attack_box.start()
 	var animation = get_new_animation(is_attacking)
 	if animation != "idle" and attack_timer.is_stopped():
@@ -103,13 +113,20 @@ func get_new_animation(is_attacking = false):
 		else:
 			animation_new = "Idle"
 			
-	if is_attacking:
+	if is_attacking and is_on_floor():
 		animation_new = "Attack"
+	elif is_attacking and not is_on_floor():
+		animation_new = "Aerial_Attack"
 	return animation_new
 
 
 func _on_Area2D_body_entered(body):
-	if "monster" in body.name:
-		emit_signal("monsterhit",damage) # Replace with function body.
-	elif "Slime" in body.name:
-		emit_signal("monsterhit2",damage)
+	
+	if "TileMap" in body.name:
+		print("kena tile map")
+		pass
+	elif "MC" in body.name:
+		print("kena mc")
+		pass
+	else:		
+		emit_signal("monsterhit",damage,body.get_name())

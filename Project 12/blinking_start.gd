@@ -12,7 +12,6 @@ func _ready():
 func _physics_process(delta):
 	if(Input.is_action_pressed("ENTER")):
 		change_Scene = true
-		blinking = false
 		blink = $Blinking2
 		transition.start()
 	

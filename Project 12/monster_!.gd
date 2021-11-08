@@ -21,6 +21,7 @@ func _set_lives(l):
 	healthshowingtimer.start()
 	
 	lives = l
+	print(lives)
 	$Enemy_health_bar/TextureProgress.value = lives
 	if(lives <= 0):
 		$monster_1.play("death")

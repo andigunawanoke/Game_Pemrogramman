@@ -98,7 +98,7 @@ script = ExtResource( 1 )
 position = Vector2( 0.707031, -0.707169 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
+frame = 4
 speed_scale = 2.542
 playing = true
 

@@ -15,8 +15,6 @@ var _velocity = Vector2.ZERO
 var speed = Vector2(100,0)
 var damage = 20
 var lives = 100
-var movement = Vector2(0,0)
-var gravity = 20
 onready var deathtimer = $DeathTimer
 onready var healthshowingtimer = $HealthShowingTimer
 
@@ -49,17 +47,11 @@ func _ready():
 	_velocity.x = speed.x
 
 func _physics_process(_delta):
-	
-	if(not is_on_floor()):
-		_velocity.y += gravity
 	if(healthshowingtimer.is_stopped()):
 		$Enemy_health_bar.hide()
 	else:
 		$Enemy_health_bar.show()
 	if(lives <= 0):
-		_velocity.x = 0
-		_velocity.y = 0
-		gravity = 0
 		speed = 0
 		$Area2D/CollisionShape2D.disabled = true
 		$CollisionShape2D.disabled = true
