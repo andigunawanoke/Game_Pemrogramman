@@ -9,8 +9,8 @@ var _timer = null
 var current_number = 0
 export var my_random_number = 1
 var current_flip = false
-var damage = 20
-var lives = 100
+export var damage = 1
+export var lives = 50
 onready var deathtimer = $Deathtimer
 onready var healthshowingtimer = $HealthShowingTimer
 

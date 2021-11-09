@@ -85,12 +85,12 @@ position = Vector2( -60.4993, 165.969 )
 script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 252.054
-margin_top = 62.7835
-margin_right = 358.054
-margin_bottom = 81.7835
+margin_left = 375.525
+margin_top = 74.0081
+margin_right = 481.525
+margin_bottom = 93.0081
 rect_scale = Vector2( 5, 5 )
-text = "Generic game 1"
+text = "Valheim"
 __meta__ = {
 "_edit_use_anchors_": false
 }

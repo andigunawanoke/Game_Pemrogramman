@@ -74,7 +74,6 @@ position = Vector2( -0.923829, -3.69944 )
 scale = Vector2( 0.331516, 0.292172 )
 frames = SubResource( 9 )
 animation = "idle"
-frame = 3
 speed_scale = 1.708
 playing = true
 
@@ -88,15 +87,18 @@ shape = SubResource( 10 )
 [node name="floor_detector_left" type="RayCast2D" parent="."]
 position = Vector2( -17.3241, -5.3033 )
 enabled = true
+cast_to = Vector2( 0, 17 )
 
 [node name="floor_detector_right" type="RayCast2D" parent="."]
 position = Vector2( 16.2635, -4.41942 )
 enabled = true
+cast_to = Vector2( 0, 17 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 11 )
+one_way_collision_margin = 16.0
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 0.5

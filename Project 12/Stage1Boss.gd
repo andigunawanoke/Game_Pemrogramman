@@ -2,15 +2,13 @@ extends Node
 
 # don't forget to use stretch mode 'viewport' and aspect 'ignore'
 onready var viewport = get_viewport()
-onready var _pause_menu = $PauseMenu
 
 func _init():
 	OS.min_window_size = OS.window_size
 	OS.max_window_size = OS.get_screen_size()
 
 func _ready():
-	var kump_musuh
-	
+	var kump_musuh	
 	kump_musuh = $KumpMusuh.get_children()
 	
 	
@@ -19,8 +17,6 @@ func _ready():
 	
 	$MC.connect("monsterhit",self,"_on_monster_hit")
 
-	
-	
 
 func _on_monster_hit(damage,monster):
 	var target
@@ -30,8 +26,4 @@ func _on_monster_hit(damage,monster):
 	
 func _on_player_hit(damage):
 	$MC._get_hit(damage)
-	$GUI.updateHealth($MC._get_lives())
-
-
-
-
+	$GUIStage1Boss.updateHealth($MC._get_lives())

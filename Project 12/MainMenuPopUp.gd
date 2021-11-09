@@ -9,7 +9,6 @@ func _ready():
 	show()
 	selected_menu = 1
 	change_menu_color()
-	pass 
 
 
 func change_menu_color():

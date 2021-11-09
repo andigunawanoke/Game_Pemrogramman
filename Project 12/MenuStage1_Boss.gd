@@ -56,7 +56,7 @@ func _input(event):
 					hide()
 				1:
 					# Restart game
-					get_tree().change_scene("res://Game.tscn")
+					get_tree().change_scene("res://Stage1Boss.tscn")
 					get_tree().paused = false
 				2:
 					# Quit game

@@ -29,7 +29,8 @@ func updateHealth(health):
 	elif(health>=20):
 		$Control3/Health_5.set_frame(1)
 	else:
-		$Control3/Health_5.set_frame(0)
+		$Control3.hide()
+		$Game_over.show()
 	
 
 

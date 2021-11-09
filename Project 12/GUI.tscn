@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/Button sprites/button.png" type="Texture" id=1]
 [ext_resource path="res://hearts/heart.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://hearts/emptyheart.png" type="Texture" id=4]
 [ext_resource path="res://sprites/Button sprites/button pressed.png" type="Texture" id=5]
 [ext_resource path="res://GUI.gd" type="Script" id=6]
-[ext_resource path="res://PauseMenu.gd" type="Script" id=7]
+[ext_resource path="res://MenuTutorial2.gd" type="Script" id=7]
 [ext_resource path="res://MenuPopUp.gd" type="Script" id=8]
+[ext_resource path="res://blinking_start.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -108,85 +109,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseMenu" type="Control" parent="."]
-visible = false
-margin_right = 1025.0
-margin_bottom = 600.0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
-margin_right = 1025.0
-margin_bottom = 600.0
-color = Color( 0, 0, 0, 0.294118 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/ColorRect"]
-margin_left = 2.0
-margin_top = -2.7818
-margin_right = 1027.0
-margin_bottom = 597.218
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/ColorRect/CenterContainer"]
-margin_left = 452.0
-margin_top = 183.0
-margin_right = 572.0
-margin_bottom = 416.0
-rect_min_size = Vector2( 120, 120 )
-
-[node name="ResumeButton" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_right = 120.0
-margin_bottom = 44.0
-rect_min_size = Vector2( 120, 44 )
-text = "Resume"
-
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 120.0
-margin_bottom = 59.0
-rect_min_size = Vector2( 0, 11 )
-
-[node name="Restart" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 63.0
-margin_right = 120.0
-margin_bottom = 107.0
-rect_min_size = Vector2( 0, 44 )
-text = "Restart"
-
-[node name="MarginContainer2" type="MarginContainer" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 111.0
-margin_right = 120.0
-margin_bottom = 122.0
-rect_min_size = Vector2( 0, 11 )
-
-[node name="Toogle" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 126.0
-margin_right = 120.0
-margin_bottom = 170.0
-rect_min_size = Vector2( 0, 44 )
-text = "button (ON)"
-
-[node name="MarginContainer3" type="MarginContainer" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 174.0
-margin_right = 120.0
-margin_bottom = 185.0
-rect_min_size = Vector2( 0, 11 )
-
-[node name="Quit" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
-margin_top = 189.0
-margin_right = 120.0
-margin_bottom = 233.0
-rect_min_size = Vector2( 0, 44 )
-text = "Quit"
-
-[node name="MenuPopUp" type="Popup" parent="."]
+[node name="MenuTutorial" type="Popup" parent="."]
 pause_mode = 2
 visible = true
 margin_right = 1024.0
@@ -197,7 +120,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="MenuPopUp"]
+[node name="ColorRect" type="ColorRect" parent="MenuTutorial"]
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 0.294118 )
@@ -205,7 +128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Resume" type="ColorRect" parent="MenuPopUp"]
+[node name="Resume" type="ColorRect" parent="MenuTutorial"]
 margin_left = 448.0
 margin_top = 185.0
 margin_right = 568.0
@@ -215,7 +138,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MenuPopUp/Resume"]
+[node name="Label" type="Label" parent="MenuTutorial/Resume"]
 margin_left = 32.128
 margin_top = 13.8591
 margin_right = 83.128
@@ -226,32 +149,121 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Restart" type="ColorRect" parent="MenuPopUp"]
+[node name="Restart" type="ColorRect" parent="MenuTutorial"]
 margin_left = 448.0
 margin_top = 265.0
 margin_right = 568.0
 margin_bottom = 309.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
-[node name="Label" type="Label" parent="MenuPopUp/Restart"]
+[node name="Label" type="Label" parent="MenuTutorial/Restart"]
 margin_left = 28.9782
 margin_top = 13.8591
 margin_right = 81.9782
 margin_bottom = 27.8591
 text = "RESTART"
 
-[node name="Quit" type="ColorRect" parent="MenuPopUp"]
+[node name="Quit" type="ColorRect" parent="MenuTutorial"]
 margin_left = 448.0
 margin_top = 345.0
 margin_right = 568.0
 margin_bottom = 389.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="MenuPopUp/Quit"]
+[node name="Label" type="Label" parent="MenuTutorial/Quit"]
 margin_left = 36.5377
 margin_top = 13.8591
 margin_right = 76.5377
 margin_bottom = 27.8591
 text = "QUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_ResumeButton_pressed"]
+[node name="Game_over" type="Popup" parent="."]
+pause_mode = 2
+visible = true
+margin_right = 1024.0
+margin_bottom = 600.0
+popup_exclusive = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Game_over"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="Game_over"]
+margin_left = 273.326
+margin_top = 166.112
+margin_right = 350.326
+margin_bottom = 180.112
+rect_scale = Vector2( 6, 6 )
+text = "GAME OVER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Game_over"]
+margin_left = 100.786
+margin_top = 298.765
+margin_right = 311.786
+margin_bottom = 313.765
+rect_scale = Vector2( 4, 4 )
+text = "How did you even fail in tutorial?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="ColorRect" parent="Game_over"]
+margin_left = 440.455
+margin_top = 619.711
+margin_right = 560.455
+margin_bottom = 663.711
+color = Color( 0.431373, 0.431373, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Game_over/Restart"]
+margin_left = 28.9782
+margin_top = 13.8591
+margin_right = 81.9782
+margin_bottom = 27.8591
+text = "RESTART"
+
+[node name="Timer" type="Timer" parent="Game_over"]
+wait_time = 2.0
+one_shot = true
+
+[node name="blinking_start" type="Label" parent="Game_over"]
+margin_left = 341.461
+margin_top = 428.983
+margin_right = 545.461
+margin_bottom = 442.983
+rect_scale = Vector2( 2, 2 )
+text = "Press \"ENTER\" to restart"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blinking" type="Timer" parent="Game_over/blinking_start"]
+one_shot = true
+
+[node name="Blinking2" type="Timer" parent="Game_over/blinking_start"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Change_Scene" type="Timer" parent="Game_over/blinking_start"]
+wait_time = 1.064
+one_shot = true

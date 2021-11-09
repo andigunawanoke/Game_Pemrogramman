@@ -1,0 +1,43 @@
+[gd_scene format=2]
+
+[node name="EndPage" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 293.734
+margin_top = 240.22
+margin_right = 427.734
+margin_bottom = 254.22
+rect_scale = Vector2( 3, 3 )
+text = "Thank you for playing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 5.94603
+margin_top = 583.901
+margin_right = 168.946
+margin_bottom = 597.901
+text = "This work still in progress"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 7.13513
+margin_top = 2.37847
+margin_right = 92.1351
+margin_bottom = 33.3785
+text = "Black Mamba
+    Valheim"
+__meta__ = {
+"_edit_use_anchors_": false
+}
