@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portal2.png-4f8c1cb0434b102b2d807c66ca7f051b.stex"
+path="res://.import/rain.png-b694551faf805ab4e182738f64955d1f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/portal2.png"
-dest_files=[ "res://.import/portal2.png-4f8c1cb0434b102b2d807c66ca7f051b.stex" ]
+source_file="res://assets/rain.png"
+dest_files=[ "res://.import/rain.png-b694551faf805ab4e182738f64955d1f.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

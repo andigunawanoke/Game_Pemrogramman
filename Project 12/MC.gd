@@ -62,6 +62,10 @@ func _physics_process(delta):
 		$CollisionShape2D.position.x = -shape_pos
 		get_node("AnimatedSprite").set_flip_h(true)
 
+
+	if (Input.is_action_pressed("Atas")):
+		movement.y -= axel * 2
+		movement.y = max(movement.y,-max_speed)
 	elif (Input.is_action_pressed("Bawah")):
 		movement.y += axel * 2
 		movement.y = min(movement.y,max_speed)
@@ -119,8 +123,10 @@ func get_new_animation(is_attacking = false):
 func _on_Area2D_body_entered(body):
 	
 	if "TileMap" in body.name:
+		print("kena tile map")
 		pass
 	elif "MC" in body.name:
+		print("kena mc")
 		pass
 	else:		
 		emit_signal("monsterhit",damage,body.get_name())

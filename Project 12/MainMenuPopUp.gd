@@ -31,4 +31,5 @@ func _input(event):
 func _physics_process(delta):
 	if(change == true and blinkSceneChanger.is_stopped()):
 			hide()
-			get_tree().change_scene("res://Game.tscn")
+			get_tree().change_scene("res://Game.tscn.tscn")
+			#res://Game.tscn
