@@ -1,0 +1,182 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://MainMenuPopUp.gd" type="Script" id=1]
+[ext_resource path="res://sprites/mc2 .png" type="Texture" id=2]
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://blinking_start.gd" type="Script" id=4]
+[ext_resource path="res://SlimeMainMenu.gd" type="Script" id=5]
+[ext_resource path="res://sprites/Pixilart Sprite Sheet.png" type="Texture" id=6]
+[ext_resource path="res://Background/logotulisan.png" type="Texture" id=7]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sprites/Button sprites/Start button.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Button sprites/Start button pressed.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 384, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 512, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 640, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 768, 0, 128, 64 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 896, 0, 128, 64 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -405.707, -125.994 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuPopUp" type="Popup" parent="."]
+pause_mode = 2
+visible = true
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( -208, 0 )
+popup_exclusive = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenuPopUp"]
+position = Vector2( 525.013, 410.763 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 10 )
+action = "StartGame"
+
+[node name="Start_Game" type="ColorRect" parent="MainMenuPopUp"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1.0
+margin_top = -2.0
+margin_right = 1022.0
+margin_bottom = 595.0
+color = Color( 0.431373, 0.431373, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuPopUp/Start_Game"]
+anchor_left = -0.192
+anchor_top = -0.451
+anchor_right = -0.192
+anchor_bottom = -0.451
+margin_left = 48.2341
+margin_top = 34.7757
+margin_right = 119.234
+margin_bottom = 48.7757
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainMenuPopUp"]
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 328, 47 )
+color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change_Scene" type="Timer" parent="MainMenuPopUp"]
+wait_time = 1.758
+one_shot = true
+
+[node name="logotulisan" type="TextureRect" parent="MainMenuPopUp"]
+margin_left = 221.068
+margin_top = 15.0214
+margin_right = 560.068
+margin_bottom = 335.022
+rect_scale = Vector2( 1.6, 1 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 206.933, 471.939 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 2 )
+frame = 3
+
+[node name="SlimeMainMenu" parent="." instance=ExtResource( 3 )]
+position = Vector2( -89.7594, 581.274 )
+script = ExtResource( 5 )
+
+[node name="blinking_start" type="Label" parent="."]
+margin_left = 401.195
+margin_top = 403.312
+margin_right = 658.195
+margin_bottom = 417.312
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.254902, 0.14902, 0.14902, 1 )
+text = "Press the start button to  start the game"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blinking" type="Timer" parent="blinking_start"]
+one_shot = true
+
+[node name="Blinking2" type="Timer" parent="blinking_start"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Change_Scene" type="Timer" parent="blinking_start"]
+wait_time = 1.064
+one_shot = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
+offset = Vector2( 360, 233 )
+scale = Vector2( 0.55, 0.8 )
+transform = Transform2D( 0.55, 0, 0, 0.8, 360, 233 )
